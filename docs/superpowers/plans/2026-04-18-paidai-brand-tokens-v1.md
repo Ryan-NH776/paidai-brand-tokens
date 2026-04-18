@@ -510,7 +510,9 @@ Run:
 ```bash
 cd ~/projects/paidai-command-center && \
   find src -type f \( -name '*.tsx' -o -name '*.ts' \) \
-    -exec sed -i '' 's/\bivory\b/paper-white/g' {} +
+    -exec perl -i -pe 's/\bivory\b/paper-white/g' {} +
+# Note: BSD sed on macOS does NOT support \b word boundaries.
+# Use perl -i -pe instead. Original plan used sed but it silently matched nothing.
 ```
 
 Expected: no output (sed `-i ''` is quiet on macOS).
@@ -758,7 +760,8 @@ Run (conditional on Step 3 finding matches):
 ```bash
 cd ~/projects/paidai-partner-portal && \
   find src -type f \( -name '*.tsx' -o -name '*.ts' \) \
-    -exec sed -i '' -E 's/\b(bg|text|border|hover:bg|hover:text|hover:border|ring)-paper\b/\1-paper-white/g' {} +
+    -exec perl -i -pe 's/\b(bg|text|border|hover:bg|hover:text|hover:border|ring)-paper\b/$1-paper-white/g' {} +
+# Note: use perl (not BSD sed) for \b regex portability on macOS.
 ```
 
 Run the check from Step 3 again — expected: zero matches.
