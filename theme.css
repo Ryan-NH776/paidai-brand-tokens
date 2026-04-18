@@ -1,0 +1,82 @@
+/* paidai-brand-tokens v1.0 — 2026-04-18
+ * Single source of truth for Pai Dai brand tokens.
+ * Imported by: paidaidmc-website, paidai-partner-portal, paidai-command-center.
+ * Canonical values from Pai Dai Brand Identity Guidelines v2.0.
+ */
+
+@theme inline {
+  /* Primary palette (Brand Guide v2.0 §4.1) */
+  --color-navy:        #1C2B4A;
+  --color-gold:        #C5973E;
+  --color-paper-white: #F7F6F3;
+  --color-warm-gray:   #9B9590;
+
+  /* Extended palette (Brand Guide v2.0 §4.2) */
+  --color-deep-teal:   #1A6B5A;
+  --color-mekong-blue: #3B6F99;
+  --color-sand:        #E8DFD1;
+  --color-terracotta:  #B5634B;
+  --color-charcoal:    #2D2D2D;
+  --color-ivory:       #FAF8F5;
+  --color-light-gold:  #D4AF61;
+  --color-slate:       #5A6775;
+
+  /* Typography
+   * Consumers must load Playfair Display and Inter via next/font/google
+   * and expose them as CSS custom properties --font-playfair / --font-inter
+   * on the document root. Websites with Thai/Arabic content must also
+   * load Noto Sans Thai / Noto Sans Arabic as --font-thai / --font-arabic. */
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body:    var(--font-inter), system-ui, sans-serif;
+
+  /* Brand motion */
+  --ease-pai-dai: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Thai locale — font + typography adjustments
+ * Noto Sans Thai; generous leading for stacked vowel/tone marks;
+ * zero letter-spacing (tracking-tight inappropriate for abugida scripts). */
+[lang="th"] {
+  --font-body: var(--font-thai), var(--font-inter), system-ui, sans-serif;
+}
+[lang="th"] .font-heading,
+[lang="th"] h1, [lang="th"] h2, [lang="th"] h3,
+[lang="th"] h4, [lang="th"] h5, [lang="th"] h6 {
+  font-family: var(--font-thai), system-ui, sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+[lang="th"] .font-body,
+[lang="th"] p,
+[lang="th"] li {
+  font-family: var(--font-thai), var(--font-inter), system-ui, sans-serif;
+  line-height: 1.9;
+}
+
+/* Arabic locale — font + typography adjustments
+ * Noto Sans Arabic denser than Playfair; tight line-height clips glyphs.
+ * Connected script benefits from generous body leading. */
+[lang="ar"] {
+  --font-heading: var(--font-arabic), var(--font-playfair), serif;
+  --font-body:    var(--font-arabic), var(--font-inter), system-ui, sans-serif;
+}
+[lang="ar"] .font-heading,
+[lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3,
+[lang="ar"] h4, [lang="ar"] h5, [lang="ar"] h6 {
+  font-family: var(--font-arabic), var(--font-playfair), serif;
+  line-height: 1.4;
+}
+[lang="ar"] .font-body,
+[lang="ar"] p,
+[lang="ar"] li {
+  font-family: var(--font-arabic), var(--font-inter), system-ui, sans-serif;
+  line-height: 1.75;
+}
+
+/* RTL — zero letter-spacing on headings and body
+ * Connected-script languages (Arabic) shouldn't be tracked. */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+[dir="rtl"] p {
+  letter-spacing: 0;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "paidai-brand-tokens",
+  "version": "1.0.0",
+  "description": "Shared design tokens for Pai Dai DMC — colors, fonts, easing, locale font behavior. Consumed by paidaidmc-website, paidai-partner-portal, and paidai-command-center.",
+  "type": "module",
+  "main": "./theme.css",
+  "exports": {
+    ".": "./theme.css",
+    "./theme.css": "./theme.css"
+  },
+  "files": [
+    "theme.css",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryan-NH776/paidai-brand-tokens.git"
+  },
+  "keywords": [
+    "pai-dai",
+    "design-tokens",
+    "tailwind",
+    "brand"
+  ],
+  "author": "Ryan (Pai Dai DMC)"
+}
