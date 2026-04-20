@@ -22,11 +22,11 @@
   --color-slate:       #5A6775;
 
   /* Typography
-   * Consumers must load Playfair Display and Inter via next/font/google
-   * and expose them as CSS custom properties --font-playfair / --font-inter
+   * Consumers must load Newsreader and Inter via next/font/google
+   * and expose them as CSS custom properties --font-newsreader / --font-inter
    * on the document root. Websites with Thai/Arabic content must also
    * load Noto Sans Thai / Noto Sans Arabic as --font-thai / --font-arabic. */
-  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-heading: var(--font-newsreader), Georgia, serif;
   --font-body:    var(--font-inter), system-ui, sans-serif;
 
   /* Brand motion */
@@ -57,13 +57,13 @@
  * Noto Sans Arabic denser than Playfair; tight line-height clips glyphs.
  * Connected script benefits from generous body leading. */
 [lang="ar"] {
-  --font-heading: var(--font-arabic), var(--font-playfair), serif;
+  --font-heading: var(--font-arabic), var(--font-newsreader), serif;
   --font-body:    var(--font-arabic), var(--font-inter), system-ui, sans-serif;
 }
 [lang="ar"] .font-heading,
 [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3,
 [lang="ar"] h4, [lang="ar"] h5, [lang="ar"] h6 {
-  font-family: var(--font-arabic), var(--font-playfair), serif;
+  font-family: var(--font-arabic), var(--font-newsreader), serif;
   line-height: 1.4;
 }
 [lang="ar"] .font-body,
