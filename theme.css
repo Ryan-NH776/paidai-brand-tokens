@@ -80,3 +80,55 @@
 [dir="rtl"] p {
   letter-spacing: 0;
 }
+
+/* ---------------------------------------------------------------------------
+ * Theme-pair tokens (v1.1 — 2026-04-25)
+ * Editorial parchment + nocturne pair for the partner portal redesign.
+ * Consumers opt in by setting [data-theme="parchment"|"nocturne"] on <html>.
+ * If neither is set, the parchment defaults below apply via :root.
+ * Status pill values are portal-specific (booking-stage palette);
+ * marketing site / command-center can ignore the --pill-* tokens.
+ * --------------------------------------------------------------------------- */
+
+:root,
+[data-theme="parchment"] {
+  color-scheme: light;
+
+  --bg:        #FAF8F5;  /* Ivory */
+  --surface:   #F7F6F3;  /* Paper White */
+  --inset:     #E8DFD1;  /* Sand */
+  --ink:       #1C2B4A;  /* Pai Dai Navy */
+  --ink-soft:  #5A6775;  /* Slate */
+  --ink-muted: #9B9590;  /* Warm Gray */
+  --rule:      #d9cfb3;
+  --rule-soft: #e6dfca;
+  --accent:    #C5973E;  /* Heritage Gold */
+  --accent-soft: #D4AF61; /* Light Gold */
+
+  --pill-onground-bg:   #dfe9d6; --pill-onground-fg:   #2f5028;
+  --pill-prearrival-bg: #f3e3c1; --pill-prearrival-fg: #6b4a14;
+  --pill-arriving-bg:   #f3d3cb; --pill-arriving-fg:   #7a2a1f;
+  --pill-confirmed-bg:  #dee5f1; --pill-confirmed-fg:  #2f4470;
+  --pill-completed-bg:  #e6dfca; --pill-completed-fg:  #5a4f3a;
+}
+
+[data-theme="nocturne"] {
+  color-scheme: dark;
+
+  --bg:        #0D1929;  /* Navy Deep */
+  --surface:   #162238;  /* Navy Mid */
+  --inset:     #1c2028;
+  --ink:       #F7F6F3;
+  --ink-soft:  #a8a496;
+  --ink-muted: #8c8a82;
+  --rule:      rgba(197, 151, 62, 0.2);
+  --rule-soft: rgba(197, 151, 62, 0.08);
+  --accent:    #C5973E;
+  --accent-soft: #D4AF61;
+
+  --pill-onground-bg:   #1f5d3a; --pill-onground-fg:   #dff5e3;
+  --pill-prearrival-bg: #5a4516; --pill-prearrival-fg: #f6e3b6;
+  --pill-arriving-bg:   #6b1f1f; --pill-arriving-fg:   #ffd9d2;
+  --pill-confirmed-bg:  #1f3b6b; --pill-confirmed-fg:  #cfe0ff;
+  --pill-completed-bg:  #2a2e36; --pill-completed-fg:  #b8b8b8;
+}
