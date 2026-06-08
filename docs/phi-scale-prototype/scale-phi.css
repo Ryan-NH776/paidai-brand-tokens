@@ -1,0 +1,57 @@
+/* paidai-brand-tokens — PROPOSED golden-ratio scale (PROTOTYPE, not yet shipped)
+ * ---------------------------------------------------------------------------
+ * Status: experiment from 2026-06-08 (LiftKit / Chainlift teardown). NOT imported
+ * by theme.css. Promote into theme.css only after the φ-scale is approved on real
+ * pages. See ./prototype.html for the before/after and ./NOTES.md for rationale.
+ *
+ * Idea: replace Tailwind's LINEAR default type + spacing scales (which every
+ * template site uses, part of why they look generic) with a MODULAR scale built
+ * on the golden ratio φ = 1.618. A modular scale makes harmonious proportions the
+ * default and "makes it difficult to look bad" — useful for a premium brand whose
+ * deliverables are often produced by non-designers.
+ *
+ * Math:
+ *   TYPE    base body = 1rem (16px); step ratio = √φ ≈ 1.272  (two steps = one φ)
+ *   SPACING md = 1rem (16px);        step ratio = φ  ≈ 1.618
+ *
+ * Tailwind v4 auto-generates utilities from these names:
+ *   --text-*    -> text-h1 … text-caption
+ *   --spacing-* -> p-lg, gap-xl, m-sm, space-y-md, etc.
+ * --------------------------------------------------------------------------- */
+
+@theme {
+  /* Type scale — √φ modular (16px base) ------------------------------------ */
+  --text-caption: 0.786rem;  /* 12.58px */
+  --text-body:    1rem;      /* 16.00px — base */
+  --text-h6:      1.272rem;  /* 20.35px */
+  --text-h5:      1.618rem;  /* 25.89px */
+  --text-h4:      2.058rem;  /* 32.93px */
+  --text-h3:      2.618rem;  /* 41.89px */
+  --text-h2:      3.330rem;  /* 53.28px */
+  --text-h1:      4.236rem;  /* 67.78px */
+
+  /* Spacing scale — φ powers (16px base = md) ------------------------------ */
+  --spacing-2xs:  0.236rem;  /*   3.78px */
+  --spacing-xs:   0.382rem;  /*   6.11px */
+  --spacing-sm:   0.618rem;  /*   9.89px */
+  --spacing-md:   1rem;      /*  16.00px — base */
+  --spacing-lg:   1.618rem;  /*  25.89px */
+  --spacing-xl:   2.618rem;  /*  41.89px */
+  --spacing-2xl:  4.236rem;  /*  67.78px */
+  --spacing-3xl:  6.854rem;  /* 109.67px */
+
+  /* Half-steps (×√φ between whole steps) for when a jump is too coarse ------ */
+  --spacing-md-half: 1.272rem; /* 20.35px (between md and lg) */
+  --spacing-lg-half: 2.058rem; /* 32.93px (between lg and xl) */
+}
+
+/* Optical correction — asymmetric card padding (idea #2) --------------------
+ * The eye weights the top-left (the heading), so symmetric padding READS as too
+ * much space on top. Trim the top by the heading's line-height factor.
+ * Usage: apply .lk-card-optical to a card whose largest text is ~h3.
+ *   pad L/R/B = X ; pad-top = X / lineHeight ; border-radius = pad-top
+ * For X = h3 (2.618rem) and line-height 1.2  ->  top = 2.182rem. */
+.lk-card-optical {
+  padding: 2.182rem var(--spacing-xl, 2.618rem) var(--spacing-xl, 2.618rem);
+  border-radius: 2.182rem;
+}
